@@ -1,0 +1,33 @@
+.navBar {
+  height: 70px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+ 
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.listItem a {
+  color: rgb(0, 0, 0);
+  height: 100%;
+  padding: 16px 10px;
+  text-decoration: none;
+}
+
+.listItem a:hover,
+.listItem a.active {
+  font-family: inherit;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+}

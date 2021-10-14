@@ -1,0 +1,51 @@
+
+.carPoke {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  
+}
+.pagination {
+  display: flex;
+  padding: 30px 700px 0px;
+}
+
+.btn {
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  border: 0;
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.5em;
+  letter-spacing: 1px;
+  background-color: #0a0a0b81;
+  border-radius: 0.35em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(39, 39, 39);
+}
+
+
+.lo {
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 300px;
+  letter-spacing: 20px;
+  padding-top: 120px;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+ 
+}

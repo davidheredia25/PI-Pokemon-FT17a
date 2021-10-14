@@ -1,0 +1,53 @@
+.ctn {
+  background-image: url(../../img/poke.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.tittle {
+  font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 5em;
+  letter-spacing: 5px;
+  text-shadow: 0 0 5px rgb(238, 255, 0), 0 0 10px rgb(255, 251, 0),
+    0 0 20px rgb(200, 255, 0), 0 0 40px rgb(121, 127, 38),
+    0 0 80px rgb(126, 127, 38), 0 0 90px rgb(121, 127, 38),
+    0 0 100px rgb(121, 127, 38), 0 0 140px rgb(118, 127, 38),
+    0 0 180px rgb(108, 127, 38);
+}
+.tittle:hover{
+  font-size: 6em;
+}
+
+.btn {
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  border: 0;
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  background-color: #0a0a0b;
+  border-radius: 0.35em;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #fafafa;
+  color: #0a0a0b;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.6em;
+}

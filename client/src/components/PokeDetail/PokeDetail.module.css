@@ -1,0 +1,28 @@
+
+.ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail {
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.img {
+  height: 170px;
+  width: 170px;
+}
+
+.types {
+  display: flex;
+}
+
+.typesImg {
+  width: 30px;
+  height: 30px;
+}
