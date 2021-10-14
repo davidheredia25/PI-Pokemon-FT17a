@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
                 const dbTypes = await Types.findAll();
                 if (!dbTypes.length) {
                         const apiTypes = (await axios.get("https://pokeapi.co/api/v2/type")).data.results;
-                        const types = apiTypes.map(g => ({ name: g.name }));
+                        const types = apiTypes.map(t => ({ name: t.name, img: `https://typedex.app/types/${t.name}.png`, }));
                         const dbtypesCreate = await Types.bulkCreate(types)
                         return res.send(dbtypesCreate)
 

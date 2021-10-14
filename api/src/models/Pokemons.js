@@ -15,25 +15,30 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     hp: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     attack: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     defense: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     speed: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     height: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     weight: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     img: {
       type: DataTypes.STRING,
+    },
+    createdInBd: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   }, {
     createdAt: false,

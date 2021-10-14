@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING
         },
+        img: {
+            type: DataTypes.STRING,
+        },
+
     }, {
         createdAt: false,
         updatedAt: false,
