@@ -38,7 +38,9 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 pokemons: [],
-                poke: {}
+                allPokemons: [],
+                poke: {},
+                types: [],
             };
         case CREATE_POKE:
             return {
@@ -61,7 +63,7 @@ function rootReducer(state = initialState, action) {
             let sortedArr = action.payload === 'asc' ?
                 state.pokemons.sort((a, b) => {
                     return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-                    
+
                 }) :
                 state.pokemons.sort((a, b) => {
                     return b.name.toLowerCase().localeCompare(a.name.toLowerCase())

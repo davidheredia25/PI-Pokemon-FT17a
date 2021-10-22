@@ -3,6 +3,8 @@ const axios = require('axios');
 const router = express.Router();
 const { Types } = require('../db');
 
+
+
 router.get('/', async (req, res, next) => {
         try {
                 const dbTypes = await Types.findAll();

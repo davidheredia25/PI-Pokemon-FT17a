@@ -15,13 +15,13 @@ export const getPokemons = (name) => async (dispatch) => {
     try {
         if (name) {
             const res = await axios.get(`/pokemons?name=${name}`);
-            dispatch({
+            return dispatch({
                 type: GET_POKEMONS,
                 payload: res.data
             });
         }
         const res = await axios.get("/pokemons");
-        dispatch({
+        return dispatch({
             type: GET_POKEMONS,
             payload: res.data,
         });
@@ -33,7 +33,7 @@ export const getPokemons = (name) => async (dispatch) => {
 export const getPokeDetail = (id) => async (dispatch) => {
     try {
         const res = await axios.get(`/pokemons/${id}`);
-        dispatch({
+        return dispatch({
             type: GET_POKE_DETAIL,
             payload: res.data
         });
@@ -45,7 +45,7 @@ export const getPokeDetail = (id) => async (dispatch) => {
 export const getTypes = () => async (dispatch) => {
     try {
         const res = await axios.get("/types");
-        dispatch({
+        return dispatch({
             type: GET_TYPES,
             payload: res.data
         });
@@ -60,7 +60,7 @@ export const unmountGetPoke = () => ({ type: UNMOUNT_GET_POKE });
 export const createPoke = (values) => async (dispatch) => {
     try {
         const res = await axios.post("/pokemons", { ...values });
-        dispatch({
+        return dispatch({
             type: CREATE_POKE,
             payload: res.data
         });
@@ -69,22 +69,23 @@ export const createPoke = (values) => async (dispatch) => {
     }
 };
 
-export const filterCreated = (payload) => (dispatch) => {
-    dispatch({
+export const filterCreated = (payload) => {
+    return {
         type: FILTER_CREATED,
         payload
-    });
+    }
 };
 
-export const orderName = (payload) => (dispatch) => {
-    dispatch({
-        type: ORDER_NAME, payload
-    });
+export const orderName = (payload) => {
+    return {
+        type: ORDER_NAME,
+        payload
+    }
 };
 
-export const filterType = (payload) => (dispatch) => {
-    dispatch({
+export const filterType = (payload) => {
+    return {
         type: FILTER_TYPE,
         payload
-    });
+    };
 };

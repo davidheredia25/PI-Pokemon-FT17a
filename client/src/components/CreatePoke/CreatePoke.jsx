@@ -5,6 +5,7 @@ import { createPoke, getTypes } from '../../redux/actions';
 import styles from './CreatePoke.module.css';
 import swal from 'sweetalert';
 
+
 const CreatePoke = () => {
   const dispatch = useDispatch()
   const history = useHistory();
@@ -41,35 +42,35 @@ const CreatePoke = () => {
       types: [],
     });
   }
-
+  let validateName=  /^[A-Z]+$/i;
   let validateNum = /^([0-9])*$/;
   let validateUrl = /^https?:\/\/(?!\/)/i;
 
   const validate = () => {
     let errors = {};
-    if (!values.name) {
-      errors.name = "name es requerido";
+    if (!validateName.test(values.name)) {
+      errors.name = "Name required";
     }
     if (!validateUrl.test(values.img)) {
-      errors.img = "Deber ser una URL válida";
+      errors.img = "URL required";
     }
     if (!validateNum.test(values.hp)) {
-      errors.hp = "Debe ser un numero";
+      errors.hp = "Number required";
     }
     if (!validateNum.test(values.attack)) {
-      errors.attack = "Debe ser un numero";
+      errors.attack = "Number required";
     }
     if (!validateNum.test(values.defense)) {
-      errors.defense = "Debe ser un numero";
+      errors.defense = "Number required";
     }
     if (!validateNum.test(values.speed)) {
-      errors.speed = "Debe ser un numero";
+      errors.speed = "Number required";
     }
     if (!validateNum.test(values.height)) {
-      errors.peso = "Debe ser un numero";
+      errors.height = "Number required";
     }
     if (!validateNum.test(values.weight)) {
-      errors.height = "Debe ser un numero";
+      errors.weight = "Number required";
     }
     return errors;
   };
@@ -90,7 +91,8 @@ const CreatePoke = () => {
   const handleOnSumit = e => {
     e.preventDefault();
     if (
-      !errors.name & !errors.img &&
+      !errors.name &&
+      !errors.img &&
       !errors.hp &&
       !errors.attack &&
       !errors.defense &&
@@ -102,7 +104,7 @@ const CreatePoke = () => {
       swal("Good job!", "You created a new pokemon!", "success")
       dispatch(createPoke(values));
       stateReset();
-      history.push('/main')
+    
 
     } else {
       alert("The form is required");
@@ -121,131 +123,135 @@ const CreatePoke = () => {
   };
 
   return (
-    <div className={styles.cntSuperior}  >
-      <h2 className={styles.title} > CREATE POKEMON</h2>
-      <form  onSubmit={handleOnSumit}>
-        <div >
-          <label className={styles.label} htmlFor=""> Name:</label>
-          <input
-            className={styles.input}
-            value={values.name}
-            name='name'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Name'>
-          </input>
-          {errors.name && <p className="warning">{errors.name}</p>}
-        </div>
+    <div>
+      <h2 className={styles.title} >Create Pokemon</h2>
+      <div className={styles.cntSuperior}  >
+        <form onSubmit={handleOnSumit}>
+          <div >
+            <label className={styles.label} htmlFor=""> Name:</label>
+            <input
+              className={styles.input}
+              value={values.name}
+              name='name'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Name'>
+            </input>
+            <p className={styles.error}>{errors.name}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Img:</label>
-          <input
-            className={styles.input}
-            value={values.img}
-            name='img'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Img'>
-          </input>
-          {errors.name && <p className="warning">{errors.img}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Img:</label>
+            <input
+              className={styles.input}
+              value={values.img}
+              name='img'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Img'>
+            </input>
+            <p className={styles.error}>{errors.img}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Hp:</label>
-          <input
-            className={styles.input}
-            value={values.hp}
-            name='hp'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Hp'>
-          </input>
-          {errors.hp && <p className="warning">{errors.hp}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Hp:</label>
+            <input
+              className={styles.input}
+              value={values.hp}
+              name='hp'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Hp'>
+            </input>
+            <p className={styles.error}>{errors.hp}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Attack:</label>
-          <input
-            className={styles.input}
-            value={values.attack}
-            name='attack'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Attack'>
-          </input>
-          {errors.attack && <p className="warning">{errors.attack}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Attack:</label>
+            <input
+              className={styles.input}
+              value={values.attack}
+              name='attack'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Attack'>
+            </input>
+            <p className={styles.error}>{errors.attack}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Defense:</label>
-          <input
-            className={styles.input}
-            value={values.defense}
-            name='defense'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Defense'>
-          </input>
-          {errors.defensa && <p className="warning">{errors.defensa}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Defense:</label>
+            <input
+              className={styles.input}
+              value={values.defense}
+              name='defense'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Defense'>
+            </input>
+            <p className={styles.error}>{errors.defense}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Speed:</label>
-          <input
-            className={styles.input}
-            value={values.speed}
-            name='speed'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Speed'>
-          </input>
-          {errors.speed && <p className="warning">{errors.speed}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Speed:</label>
+            <input
+              className={styles.input}
+              value={values.speed}
+              name='speed'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Speed'>
+            </input>
+            <p className={styles.error}>{errors.speed}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Height:</label>
-          <input
-            className={styles.input}
-            value={values.height}
-            name='height'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Height'>
-          </input>
-          {errors.height && <p className="warning">{errors.height}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Height:</label>
+            <input
+              className={styles.input}
+              value={values.height}
+              name='height'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Height'>
+            </input>
+            <p className={styles.error}>{errors.height}</p>
+          </div>
 
-        <div>
-          <label className={styles.label} htmlFor=""> Weight:</label>
-          <input
-            className={styles.input}
-            value={values.weight}
-            name='weight'
-            onChange={handleOnChange}
-            type="text"
-            placeholder='Weight'>
-          </input>
-          {errors.weight && <p className="warning">{errors.weight}</p>}
-        </div>
+          <div>
+            <label className={styles.label} htmlFor=""> Weight:</label>
+            <input
+              className={styles.input}
+              value={values.weight}
+              name='weight'
+              onChange={handleOnChange}
+              type="text"
+              placeholder='Weight'>
+            </input>
+            <p className={styles.error}>{errors.weight}</p>
+          </div>
 
+          <button className={styles.btn}> Create</button>
 
-        <div >
-          <h4 className={styles.titletypes} >Select the types</h4>
+        </form>
+
+        <div className={styles.carCtnSup} >
+          <h4 className={styles.titletype} >Select the types:</h4>
           <div className={styles.carTypes} onChange={handleType} value={values.types}>
             {
               types.map((t, k) => (
                 <div className={styles.types} key={k}>
-                  <input value={t.id} type="checkbox" />
-                  {t.name}
+                  <input  value={t.id}  type="checkbox" id="check1" />
+                  <img className={styles.typeImg} src={t.img} alt="" />
+                  <label id="check1">  {t.name} </label> 
+                
                 </div>
               ))
             }
           </div>
         </div>
-
-        <button className={styles.btn}> Create</button>
-
-      </form>
+    
+      </div>
     </div>
   );
 }

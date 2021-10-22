@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './PokeCard.module.css';
 import { Link } from 'react-router-dom';
 
+
+
 const PokeCard = ({ poke }) => {
 
-
     return (
-
 
         <div className={styles.car} key={poke.id} >
             <Link className={styles.title}  to={`/main/detail/${poke.id}`}>

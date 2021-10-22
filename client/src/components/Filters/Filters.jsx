@@ -34,26 +34,26 @@ const Filters = () => {
         <div className={styles.cont}>
             <div>
                 <h4 className={styles.title}>Order</h4>
-                <label className={styles.label} htmlFor="">Alfabeticamente</label>
+                <label className={styles.label} htmlFor="">Alphabetically  </label>
                 <select className={styles.select} onChange={e => handleSort(e)} >
                     <option >-</option>
-                    <option value="asc">ASC</option>
-                    <option value="desc">DESC</option>
+                    <option value="asc">A-Z</option>
+                    <option value="desc">Z-A</option>
                 </select>
             </div>
             <div>
                 <h4 className={styles.title}>Filters</h4>
-                <label className={styles.label} htmlFor=""> Creados - Existentes </label>
+                <label className={styles.label} htmlFor=""> Created - Api  </label>
                 <select className={styles.select} onChange={e => handleFilterCreated(e)} >
                     <option >-</option>
-                    <option value="all">Todos</option>
-                    <option value="created">Creados</option>
-                    <option value="api">Existentes</option>
+                    <option value="all">All Pokemons </option>
+                    <option value="created">Data Base</option>
+                    <option value="api">All Api</option>
                 </select>
 
 
 
-                <label className={styles.label} htmlFor=""> Types </label>
+                <label className={styles.label} htmlFor=""> Types  </label>
                 <select className={styles.select} onChange={e => handleFilterType(e)} >
                     {
                         types.map((t, k) => (

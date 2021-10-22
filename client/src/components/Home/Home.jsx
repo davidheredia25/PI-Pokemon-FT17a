@@ -5,6 +5,7 @@ import Pokemons from '../Pokemons/Pokemons';
 
 
 
+
 const Home = () => {
 
     return (

@@ -4,18 +4,21 @@
   text-align: center;
   top: 0px;
   position: relative;
-  border-radius: 4px;
+  border-radius: 3px;
   padding-top: 10px;
-  padding-bottom: 18px;
+  padding-bottom: 10px;
   z-index: 0;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.082);
+  border: 0.2px solid rgba(0, 0, 0, 0.103);
+  background-color: rgba(255, 255, 255, 0.02);
 }
+
 .car:hover {
   transition: all 0.2s ease-out;
   box-shadow: 30px 40px 8px rgba(38, 38, 38, 0.2);
   top: -4px;
-  background-color: rgba(255, 255, 255, 0.404);
+  background-color: rgb(255, 255, 255);
+  border: 0.5px solid rgba(0, 0, 0, 0.212);
 }
 
 .title {
@@ -24,7 +27,6 @@
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 14px;
-  
 }
 
 .text {
@@ -32,7 +34,6 @@
   font-weight: 600;
   letter-spacing: 1px;
   margin: 0px 6px 0px 6px;
-  
 }
 
 .imge {
@@ -51,9 +52,7 @@
 }
 
 .typesImg {
-
   width: 20px;
   height: 20px;
   align-content: center;
-
 }

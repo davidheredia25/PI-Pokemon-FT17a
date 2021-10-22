@@ -1,28 +1,51 @@
-
-.ctn {
+.ctnDetail {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  margin: 170px;
+}
+
+.title {
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid;
+  border-top: 3px solid;
+  font-weight: 900;
+  font-size: 35px;
+  letter-spacing: 10px;
+  margin-bottom: 20px ;
 }
 
 .detail {
   color: rgb(0, 0, 0);
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 900;
-  font-size: 30px;
-  letter-spacing: 1px;
+  font-weight: 450;
+  font-size: 25px;
+  letter-spacing: 3px;
+  
 }
 
 .img {
-  height: 170px;
-  width: 170px;
+  height: 400px;
+  width: 400px;
+  margin-right: 80px;
 }
 
 .types {
-  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-top: 8px;
+  text-align: center;
+  margin-right: 30px;
+  margin-top: 20px;
+  
 }
+
 
 .typesImg {
   width: 30px;
   height: 30px;
+ 
+
 }

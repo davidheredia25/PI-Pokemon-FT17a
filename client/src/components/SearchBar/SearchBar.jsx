@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styles from './SearchBar.module.css';
 
+
 const SearchBar = () => {
     const history = useHistory();
     const [name, setName] = useState('');

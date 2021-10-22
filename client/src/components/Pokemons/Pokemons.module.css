@@ -14,38 +14,55 @@
   margin: 0 auto;
   padding: 1em 1.5em;
   border: 0;
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: inherit;
   font-weight: 600;
   font-size: 0.5em;
   letter-spacing: 1px;
-  background-color: #0a0a0b81;
+  background-color: #000000c0;
   border-radius: 0.35em;
   cursor: pointer;
 }
 
 .btn:hover {
-  background-color: rgb(39, 39, 39);
+  background-color: rgba(255, 255, 255, 0.383);
+  color: rgb(0, 0, 0);
 }
 
 
-.lo {
-  animation-duration: 2s;
-  animation-name: slidein;
+.lo{
+  
+  animation-name: tittle;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+
+  -webkit-animation-name:tittle;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
   font-family: inherit;
   font-weight: 600;
-  font-size: 300px;
+  font-size: 200px;
   letter-spacing: 20px;
-  padding-top: 120px;
+  margin: 240px;
+  text-align: center;
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%
-  }
+@-moz-keyframes tittle{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
 
- 
+@-webkit-keyframes tittle{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes tittle {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
 }

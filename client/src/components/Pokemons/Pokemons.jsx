@@ -7,8 +7,6 @@ import styles from './Pokemons.module.css';
 import Filters from '../Filters/Filters';
 
 
-
-
 const Pokemons = () => {
     const query = new URLSearchParams(useLocation().search.slice(1));
     const dispatch = useDispatch();
@@ -17,7 +15,7 @@ const Pokemons = () => {
 
 
     const [currentPage, setCurrentPage] = useState(0);
-    var pokemonsI = pokemons.slice(currentPage, currentPage + 12);
+    const pokemonsI = pokemons.slice(currentPage, currentPage + 12);
 
     const nextPage = () => {
         setCurrentPage(currentPage + 12);
@@ -25,7 +23,6 @@ const Pokemons = () => {
     const prevPage = () => {
         if (currentPage > 0) setCurrentPage(currentPage - 12);
     };
-
 
 
     useEffect(() => {
@@ -46,7 +43,7 @@ const Pokemons = () => {
                             Prev Page
                         </button>
                     ) : null}
-                    {currentPage < 38 ? (
+                    {currentPage < 36 ? (
                         <button className={styles.btn} onClick={nextPage}>
                             Next Page
                         </button>
@@ -64,8 +61,9 @@ const Pokemons = () => {
                 }
             </div >
         );
-        return pokemonsI.length ? pokeComponent() : <div className={styles.lo}>...Loading</div>
+        return pokemonsI.length ? pokeComponent() : <div className={styles.lo}>LOADING</div>
     }
+    
 }
 
 export default Pokemons;

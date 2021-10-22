@@ -20,38 +20,35 @@ const PokeDetail = () => {
 
     if (poke.name) {
         return (
-            <div className={styles.ctn} key={poke.id}>
 
-
+            <div className={styles.ctnDetail} key={poke.id} >
                 <div>
                     <img className={styles.img} src={poke.img} alt={poke.name} />
                 </div>
-
-                <div className={styles.detail} >
-                    <h2>{poke.name.toUpperCase()}</h2>
+                <div className={styles.detail}>
+                    <h2 className={styles.title}>{poke.name.toUpperCase()}</h2>
                     <p>Id: {poke.id}</p>
-                    <p>hp: {poke.hp}</p>
-                    <p>attack: {poke.attack}</p>
-                    <p>defense: {poke.defense}</p>
-                    <p>speed: {poke.speed}</p>
-                    <p>height: {poke.height} kg</p>
-                    <p>weight: {poke.weight} m</p>
-
-
-                    <div className={styles.types}>
+                    <p>Hp: {poke.hp}</p>
+                    <p>Attack: {poke.attack}</p>
+                    <p>Defense: {poke.defense}</p>
+                    <p>Speed: {poke.speed}</p>
+                    <p>Height: {poke.height} kg</p>
+                    <p>Weight: {poke.weight} m</p>
+                    <div>
                         {
                             poke.types && poke.types.map((t, k) => {
                                 return (
-                                    <div key={k}>
+                                    <div className={styles.types}  key={k}>
                                         <img className={styles.typesImg} src={t.img} alt={t.name} />
-                                        <p> {t.name.charAt(0).toUpperCase() + t.name.slice(1)} </p>
+                                        <p > {t.name.charAt(0).toUpperCase() + t.name.slice(1)} </p>
                                     </div>
                                 )
                             })
                         }
                     </div>
+
                 </div>
-            </div >
+            </div>
 
         )
     } else {
