@@ -12,8 +12,9 @@
   list-style: none;
   display: flex;
   align-items: center;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .listItem a {

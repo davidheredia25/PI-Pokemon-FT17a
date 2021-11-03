@@ -40,7 +40,7 @@ function rootReducer(state = initialState, action) {
                 pokemons: [],
                 allPokemons: [],
                 poke: {},
-                types: [],
+               
             };
         case CREATE_POKE:
             return {

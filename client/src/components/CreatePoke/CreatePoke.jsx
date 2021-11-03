@@ -3,12 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createPoke, getTypes } from '../../redux/actions';
 import styles from './CreatePoke.module.css';
-import swal from 'sweetalert';
-
 
 const CreatePoke = () => {
-  const dispatch = useDispatch()
   const history = useHistory();
+  const dispatch = useDispatch()
   const { types } = useSelector((state) => state);
   const [errors, setErrors] = useState({});
 
@@ -42,9 +40,9 @@ const CreatePoke = () => {
       types: [],
     });
   }
-  let validateName=  /^[A-Z]+$/i;
+  let validateName = /^[a-z]+$/i;
   let validateNum = /^([0-9])*$/;
-  let validateUrl = /^https?:\/\/(?!\/)/i;
+  let validateUrl = /^(ftp|http|https):\/\/[^ "]+$/;
 
   const validate = () => {
     let errors = {};
@@ -90,6 +88,7 @@ const CreatePoke = () => {
 
   const handleOnSumit = e => {
     e.preventDefault();
+
     if (
       !errors.name &&
       !errors.img &&
@@ -97,19 +96,18 @@ const CreatePoke = () => {
       !errors.attack &&
       !errors.defense &&
       !errors.speed &&
-      !errors.height &&
+      !errors.heightt &&
       !errors.weight &&
       !errors.types
     ) {
-      swal("Good job!", "You created a new pokemon!", "success")
+
       dispatch(createPoke(values));
       stateReset();
-    
+      history.push('/main');
 
     } else {
       alert("The form is required");
     }
-
   }
 
   const handleType = (e) => {
@@ -241,16 +239,16 @@ const CreatePoke = () => {
             {
               types.map((t, k) => (
                 <div className={styles.types} key={k}>
-                  <input  value={t.id}  type="checkbox" id="check1" />
+                  <input value={t.id} type="checkbox" id="check1" />
                   <img className={styles.typeImg} src={t.img} alt="" />
-                  <label id="check1">  {t.name} </label> 
-                
+                  <label id="check1">  {t.name.charAt(0).toUpperCase() + t.name.slice(1)} </label>
+
                 </div>
               ))
             }
           </div>
         </div>
-    
+
       </div>
     </div>
   );

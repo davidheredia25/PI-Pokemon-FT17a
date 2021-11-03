@@ -14,7 +14,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <input className={styles.input} onChange={({ target: { value } }) => setName(value)} value={name} type="text" placeholder="Search..." />
+            <input className={styles.input} onChange={({ target: { value } }) => setName(value)} value={name} type="text" placeholder="Search by name" />
             <button className={styles.btn} type="submit" onClick={handleOnClick}>Search</button>
         </div>
     )

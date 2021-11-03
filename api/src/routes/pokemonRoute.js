@@ -62,6 +62,7 @@ router.get('/', async (req, res, next) => {
                 let pokeI = poke[i].data;
                 let pokemon = {
                     id: pokeI.id,
+
                     name: pokeI.name,
                     hp: pokeI.stats[0].base_stat,
                     attack: pokeI.stats[1].base_stat,
@@ -85,72 +86,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-// router.get('/', async (req, res, next) => {
 
-//     try {
-//         let { name } = req.query
-//         let pokeArray = [];
-//         let pokemonsTotal = [];
-
-//         if (name && name !== "") {
-//             let dbPoke = await Pokemons.findAll({
-//                 where: {
-//                     name: {
-//                         [Op.iLike]: `%${name}%`
-//                     }
-//                 }
-//             });
-//             try {
-//                 let apiPoke = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)).data;
-//                 let pokemon = {
-//                     id: apiPoke.id,
-//                     name: apiPoke.name,
-//                     hp: apiPoke.stats[0].base_stat,
-//                     attack: apiPoke.stats[1].base_stat,
-//                     defense: apiPoke.stats[2].base_stat,
-//                     speed: apiPoke.stats[5].base_stat,
-//                     height: apiPoke.height,
-//                     weight: apiPoke.weight,
-//                     img: apiPoke.sprites.other.dream_world.front_default,
-//                     types: apiPoke.types.map((t) => ({
-//                         name: t.type.name,
-//                         img: `https://typedex.app/types/${t.type.name}.png`,
-//                     })),
-//                 }
-//                 pokeArray.push(pokemon);
-//             } catch (err) {
-//                 return res.status(201).json([...dbPoke]);
-//             }
-//             pokemonsTotal = dbPoke.concat(pokeArray)
-//         } else {
-//             let dbPoke = await Pokemons.findAll({ include: [Types] });
-//             let apiPoke = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40')).data.results;
-//             for (let i = 0; i < apiPoke.length; i++) {
-//                 let pokeI = (await axios.get(apiPoke[i].url)).data;
-//                 let pokemon = {
-//                     id: pokeI.id,
-//                     name: pokeI.name,
-//                     hp: pokeI.stats[0].base_stat,
-//                     attack: pokeI.stats[1].base_stat,
-//                     defense: pokeI.stats[2].base_stat,
-//                     speed: pokeI.stats[5].base_stat,
-//                     height: pokeI.height,
-//                     weight: pokeI.weight,
-//                     img: pokeI.sprites.other.dream_world.front_default,
-//                     types: pokeI.types.map((t) => ({
-//                         name: t.type.name,
-//                         img: `https://typedex.app/types/${t.type.name}.png`,
-//                     })),
-//                 }
-//                 pokeArray.push(pokemon);
-//             }
-//             pokemonsTotal = dbPoke.concat(pokeArray)
-//         }
-//         return res.status(201).json(pokemonsTotal);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
 
 
 router.get('/:id', async (req, res, next) => {
@@ -208,7 +144,6 @@ router.post('/', async (req, res, next) => {
             img,
             createdInBd,
         });
-        
         await newPoke.addTypes(types)
         return res.status(200).json(newPoke)
     } catch (err) {

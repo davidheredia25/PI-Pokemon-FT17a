@@ -7,7 +7,7 @@ const Landing = () => {
     const handleOnClick = () => history.push('/main');
     return (
         <div className={styles.ctn}>
-            <h1 className={styles.tittle} onClick={handleOnClick}>WELCOME TO POKEMOS</h1>
+            <h1 className={styles.tittle} onClick={handleOnClick}>WELCOME TO POKEMONS</h1>
         </div>
     )
 };

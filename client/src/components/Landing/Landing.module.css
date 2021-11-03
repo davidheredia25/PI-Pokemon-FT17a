@@ -1,5 +1,5 @@
 .ctn {
-  /* background-image: url(../../img/poke3.jpg); */
+  background-image: url(../../img/poke1.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -11,9 +11,10 @@
 }
 
 .tittle {
+  transition: all 1s ease-out;
   cursor: pointer;
-	text-align: center;
-	color: #14141449;
+  text-align: center;
+  color: #14141449;
   font-size: 5em;
   letter-spacing: 6px;
   text-shadow: 0 0 5px rgb(255, 255, 0), 0 0 10px rgb(255, 251, 0),
@@ -23,9 +24,7 @@
     0 0 180px rgb(234, 255, 49);
 }
 
-.tittle:hover{
-  
-  font-size: 16em;
+.tittle:hover {
+  font-size: 20em;
+  transition: all 1s ease-out;
 }
-
-
